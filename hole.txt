@@ -1,0 +1,299 @@
+|||||||||||||||||||DFS||||||||||||||||||||||| 
+
+
+graph = { 
+ '1': ['2', '3'], 
+ '2': ['1', '4', '5'], 
+ '3': ['1', '6','7'], 
+ '4': ['2','8'], 
+ '5': ['2', '8'], 
+ '6': ['3', '8'],
+ '7': ['3', '8'],
+ '8': ['4', '5','6,'7']
+ } 
+ 
+ # DFS traversal function 
+ def dfs(graph, start, visited): 
+ if start not in visited: 
+ print(start, end=' ') 
+ visited.add(start) 
+ for neighbor in graph[start]: 
+ dfs(graph, neighbor, visited) 
+ 
+ # Main function to initiate DFS traversal 
+ def main(): 
+ start_node = '1' # You can change the starting node here 
+ print("Depth-First Search Traversal:") 
+ visited = set() 
+ dfs(graph, start_node, visited) 
+ 
+ if __name__ == '__main__': 
+ main()
+
+
+||||||||||||||||||||BFS||||||||||||||||||||||
+
+
+from collections import deque 
+
+graph = { 
+    '1': ['2', '3'], 
+    '2': ['1', '4', '5'], 
+    '3': ['1', '6', '7'], 
+    '4': ['2', '8'], 
+    '5': ['2', '8'], 
+    '6': ['3', '8'],
+    '7': ['3', '8'],
+    '8': ['4', '5', '6', '7']
+} 
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])  # Initialize the queue with the start node
+    
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            print(node, end=' ')  # Process the node
+            visited.add(node)
+            queue.extend(neighbor for neighbor in graph[node] if neighbor not in visited)
+
+# Main function to initiate BFS traversal 
+def main(): 
+    start_node = '1'  # You can change the starting node here 
+    print("Breadth-First Search Traversal:") 
+    bfs(graph, start_node) 
+
+if __name__ == '__main__':
+    main()
+
+
+||||||||||||||||||||chatbot|||||||||||||||||||||
+
+
+def chatbot():
+    print("Hello! I am a simple chatbot. How can I help you? If you want to exit, type 'exit'.")
+    
+    while True:
+        user_input = input("You: ").strip().lower()
+        
+        if user_input in ['hii', 'hello']:
+            print("Chatbot: Hello! How can I help you?")
+        elif user_input in ['how are you', 'how are you doing']:
+            print("Chatbot: I am just a bot, functioning as expected.")
+        elif user_input in ['what is your name']:
+            print("Chatbot: I am a simple chatbot. I am here to assist you with basic tasks.")
+        elif user_input in ['exit']:
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        else:
+            print("Chatbot: I cannot understand that. Can you rephrase?")
+
+# Run the chatbot
+chatbot()
+
+|||||||||||||||||||||||||||water jug problem|||||||||||||||||||||||||
+
+def water_jug_problem(capacity_x, capacity_y, target):
+    jug_x = 0
+    jug_y = 0
+
+    while jug_x != target and jug_y != target:
+        print(f"Jug X: {jug_x}L, Jug Y: {jug_y}L")
+
+        # Fill jug X if it is empty
+        if jug_x == 0:
+            jug_x = capacity_x
+            print("Fill Jug X")
+
+        # Transfer water from jug X to jug Y if jug X is not empty
+        elif jug_x > 0 and jug_y < capacity_y:
+            transfer = min(jug_x, capacity_y - jug_y)
+            jug_x -= transfer
+            jug_y += transfer
+            print("Transfer from Jug X to Jug Y")
+
+        # Empty jug Y if it is full
+        elif jug_y == capacity_y:
+            jug_y = 0
+            print("Empty Jug Y")
+
+        # Check if the target is achieved
+        if jug_x == target or jug_y == target:
+            print(f"Jug X: {jug_x}L, Jug Y: {jug_y}L")
+            print("Solution Found!")
+            return
+
+def main():
+    capacity_x = 5  # Capacity of jug X
+    capacity_y = 7  # Capacity of jug Y
+    target = 4      # Amount of water to measure
+
+    print("Solving Water Jug Problem:")
+    water_jug_problem(capacity_x, capacity_y, target)
+
+if __name__ == '__main__':
+    main()
+
+|||||||||||||||||||||||A * alogorithm||||||||||||||||||||||||||
+
+import heapq
+
+graph = {
+    'A': {'B': 9, 'C': 4, 'D': 7},
+    'B': {'E': 11},
+    'C': {'E': 17, 'F': 12},
+    'D': {'F': 14},
+    'E': {'G': 5},
+    'F': {'G': 9},
+    'G': {}
+}
+heuristic = {'A': 21, 'B': 14, 'C': 18, 'D': 18, 'E': 5, 'F': 8, 'G': 0}
+
+def a_star(start, goal):
+    queue = [(0, start)]
+    costs = {start: 0}
+    came_from = {}
+
+    while queue:
+        _, current = heapq.heappop(queue)
+        if current == goal:
+            path = []
+            while current:
+                path.append(current)
+                current = came_from.get(current)
+            return path[::-1]
+
+        for neighbor, weight in graph[current].items():
+            new_cost = costs[current] + weight
+            if neighbor not in costs or new_cost < costs[neighbor]:
+                costs[neighbor] = new_cost
+                heapq.heappush(queue, (new_cost + heuristic[neighbor], neighbor))
+                came_from[neighbor] = current
+
+    return None
+
+# Run the algorithm
+path = a_star('A', 'G')
+print("Path:", path)
+
+
+\\\\\\\\\\\\\\\Write a Python program for the following Cryptarithmetic problems
+SEND + MORE = MONEY\\\\\\\\\\\\\\\\\\\\\
+
+
+from itertools import permutations
+
+def solve_cryptarithmetic():
+    letters = 'SENDMORY'
+    for perm in permutations(range(10), len(letters)):
+        s, e, n, d, m, o, r, y = perm
+        # Leading letters cannot be zero
+        if s == 0 or m == 0:
+            continue
+
+        send = 1000 * s + 100 * e + 10 * n + d
+        more = 1000 * m + 100 * o + 10 * r + e
+        money = 10000 * m + 1000 * o + 100 * n + 10 * e + y
+
+        if send + more == money:
+            print(f"SEND = {send}, MORE = {more}, MONEY = {money}")
+            return  # Stop after finding one solution
+            
+     print("No solution found")
+
+solve_cryptarithmetic()
+
+
+
+\\\\\\\\\\\\\\\\\\\Collage info chatbot\\\\\\\\\\\\\\\\\\\\
+
+def college_chatbot():
+    print("Hello! I am your college info chatbot. How can I assist you? If you want to exit, type 'exit'.")
+    
+    college_info = {
+        "name": "Sample College",
+        "location": "City, Country",
+        "programs": ["Computer Science", "Business Administration", "Engineering"],
+        "facilities": ["Library", "Gym", "Sports Fields"]
+    }
+    
+    while True:
+        user_input = input("You: ").strip().lower()
+        
+        if user_input in ['hi', 'hello', 'hii']:
+            print("Chatbot: Hello! How can I help you?")
+        elif 'name' in user_input:
+            print(f"Chatbot: The college's name is {college_info['name']}.")
+        elif 'location' in user_input:
+            print(f"Chatbot: The college is located in {college_info['location']}.")
+        elif 'programs' in user_input:
+            print(f"Chatbot: The college offers programs in {', '.join(college_info['programs'])}.")
+        elif 'facilities' in user_input:
+            print(f"Chatbot: The college provides facilities such as {', '.join(college_info['facilities'])}.")
+        elif user_input in ['exit']:
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        else:
+            print("Chatbot: I cannot understand that. Can you rephrase?")
+
+# Run the chatbot
+college_chatbot()
+
+
+\\\\\\ \\\\\\\\\\\\\\tic tac toe \\\\\\\
+
+
+
+def sum(a, b, c ):
+    return a + b + c
+
+def printBoard(xState, zState):
+    zero = 'X' if xState[0] else ('O' if zState[0] else 0)
+    one = 'X' if xState[1] else ('O' if zState[1] else 1)
+    two = 'X' if xState[2] else ('O' if zState[2] else 2)
+    three = 'X' if xState[3] else ('O' if zState[3] else 3)
+    four = 'X' if xState[4] else ('O' if zState[4] else 4)
+    five = 'X' if xState[5] else ('O' if zState[5] else 5)
+    six = 'X' if xState[6] else ('O' if zState[6] else 6)
+    seven = 'X' if xState[7] else ('O' if zState[7] else 7)
+    eight = 'X' if xState[8] else ('O' if zState[8] else 8)
+    print(f"{zero} | {one} | {two} ")
+    print(f"--|---|---")
+    print(f"{three} | {four} | {five} ")
+    print(f"--|---|---")
+    print(f"{six} | {seven} | {eight} ") 
+
+def checkWin(xState, zState):
+    wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+    for win in wins:
+        if(sum(xState[win[0]], xState[win[1]], xState[win[2]]) == 3):
+            print("X Won the match")
+            return 1
+        if(sum(zState[win[0]], zState[win[1]], zState[win[2]]) == 3):
+            print("O Won the match")
+            return 0
+    return -1
+    
+if __name__ == "__main__":
+    xState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    zState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    turn = 1 # 1 for X and 0 for O
+    print("Welcome to Tic Tac Toe")
+    while(True):
+        printBoard(xState, zState)
+        if(turn == 1):
+            print("X's Chance")
+            value = int(input("Please enter a value: "))
+            xState[value] = 1
+        else:
+            print("O's Chance")
+            value = int(input("Please enter a value: "))
+            zState[value] = 1
+        cwin = checkWin(xState, zState)
+        if(cwin != -1):
+            print("Match over")
+            break
+        
+        turn = 1 - turn
+
