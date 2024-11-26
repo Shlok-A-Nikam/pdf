@@ -1,0 +1,790 @@
+1. Model the following Property system as a document database. Consider a 
+set of Property, Owner. One owner can buy many properties. 
+2. Assume appropriate attributes and collections as per the query requirements. 
+[3] 
+3. Insert at least 05 documents in each collection. [3]
+
+db.properties.insertMany([
+    { property_id: "P1", area: "Pune", rate: 150000, owner_id: "O1" },
+    { property_id: "P2", area: "Mumbai", rate: 250000, owner_id: "O2" },
+    { property_id: "P3", area: "Nashik", rate: 90000, owner_id: "O3" },
+    { property_id: "P4", area: "Pune", rate: 120000, owner_id: "O1" },
+    { property_id: "P5", area: "Nagpur", rate: 85000, owner_id: "O4" }
+]);
+
+
+db.owners.insertMany([
+    { owner_id: "O1", name: "Mr.Patil", contact: "9876543210" },
+    { owner_id: "O2", name: "Mrs.Sharma", contact: "8765432109" },
+    { owner_id: "O3", name: "Mr.Kumar", contact: "7654321098" },
+    { owner_id: "O4", name: "Ms.Deshmukh", contact: "6543210987" },
+    { owner_id: "O5", name: "Mr.Verma", contact: "5432109876" }
+]);
+
+
+4. Answer the following Queries
+a. Display area wise property details. [3] 
+
+db.properties.find({},{_id:0,area:1,property_id:1,rate:1});
+
+[
+  { property_id: 'P1', area: 'Pune', rate: 150000 },
+  { property_id: 'P2', area: 'Mumbai', rate: 250000 },
+  { property_id: 'P3', area: 'Nashik', rate: 90000 },
+  { property_id: 'P4', area: 'Pune', rate: 120000 },
+  { property_id: 'P5', area: 'Nagpur', rate: 85000 }
+]
+
+b. Display property owned by 'Mr.Patil' having minimum rate [3] 
+
+ db.properties.find({ owner_id: "O1" });
+
+ 
+c. Give the details of owner whose property is at “Nashik”. [4]
+
+db.properties.find({ area: "Nashik" }, { _id: 0, owner_id: 1 });
+
+db.owners.find({ owner_id: "O3" }, { _id: 0, name: 1, contact: 1 });
+[ { name: 'Mr.Kumar', contact: '7654321098' } ]
+
+
+d. Display area of property whose rate is less than 100000. [4]
+
+ db.properties.find({ rate: {$lte:100000} }, { _id:0, area:1});
+
+
+
+. Model the following system as a document database.
+Consider a database of newspaper, publisher, and city.
+Different publisher publishes various newspapers in different cities
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+
+
+3. Insert at least 5 documents in each collection. [3]
+
+ db.newspapers.insertMany([
+...   { newspaper_id: "N1", newspaper_name: "Times of Nashik", language: "Marathi", city: "Nashik", sale: 5000 },
+...   { newspaper_id: "N2", newspaper_name: "Nashik Times", language: "Marathi", city: "Nashik", sale: 4000 },
+...   { newspaper_id: "N3", newspaper_name: "Maharashtra News", language: "Marathi", city: "Pune", sale: 7000 },
+...   { newspaper_id: "N4", newspaper_name: "Gujarat Today", language: "English", city: "Ahmedabad", sale: 6000 },
+...   { newspaper_id: "N5", newspaper_name: "Mumbai Mirror", language: "English", city: "Mumbai", sale: 8000 }
+... ]);
+
+ db.publishers.insertMany([
+...   { publisher_id: "P1", publisher_name: "Marathi Media", state: "Maharashtra", newspapers: ["N1", "N2", "N3"] },
+...   { publisher_id: "P2", publisher_name: "Gujarat Media", state: "Gujarat", newspapers: ["N4"] },
+...   { publisher_id: "P3", publisher_name: "Mumbai Press", state: "Maharashtra", newspapers: ["N5"] },
+...   { publisher_id: "P4", publisher_name: "Pune Publishers", state: "Maharashtra", newspapers: ["N3"] },
+...   { publisher_id: "P5", publisher_name: "Nashik News", state: "Maharashtra", newspapers: ["N1", "N2"] }
+... ]);
+
+ db.cities.insertMany([
+...   { city_id: "C1", city_name: "Nashik", state: "Maharashtra", newspapers: ["N1", "N2"] },
+...   { city_id: "C2", city_name: "Pune", state: "Maharashtra", newspapers: ["N3"] },
+...   { city_id: "C3", city_name: "Mumbai", state: "Maharashtra", newspapers: ["N5"] },
+...   { city_id: "C4", city_name: "Ahmedabad", state: "Gujarat", newspapers: ["N4"] },
+...   { city_id: "C5", city_name: "Nagpur", state: "Maharashtra", newspapers: [] }
+... ]);
+4. Answer the following Queries.
+a. List all newspapers available “NASHIK” city [3]
+ db.newspapers.find({ city:"Nashik" });
+
+b. List all the newspaper of “Marathi” language [3]
+db.newspapers.find({ language:"Marathi" });
+
+c. Count no. of publishers of “Gujrat” state [4]
+ db.publishers.countDocuments({ state: "Gujarat" });
+
+d. Write a cursor to show newspapers with highest sale in Maharashtra
+State [4]
+
+var myCursor = db.newspapers.find({ "city.state": "Maharashtra" })
+                            .sort({ sale: -1 })
+                            .limit(1);
+
+while (myCursor.hasNext()) {
+    print(tojson(myCursor.next()));
+}
+
+
+
+|||||||||||||||||||||||||||||||||||||||Slip 3|||||||||||||||||||||||||||||||||||||||||||||
+
+1. Model the following system as a document database. Consider
+employee and department’s information.
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+
+
+3. Insert at least 5 documents in each collection. [3]
+
+db.employees.insertMany([
+  { employee_id: "E1", name: "John Doe", salary: 60000, department_id: "D1" },
+  { employee_id: "E2", name: "Jane Smith", salary: 75000, department_id: "D2" },
+  { employee_id: "E3", name: "Bob Brown", salary: 50000, department_id: "D1" },
+  { employee_id: "E4", name: "Alice Davis", salary: 55000, department_id: "D3" },
+  { employee_id: "E5", name: "Charlie White", salary: 80000, department_id: "D2" }
+]);
+
+
+db.departments.insertMany([
+  { department_id: "D1", department_name: "HR", employee_count: 2 },
+  { department_id: "D2", department_name: "IT", employee_count: 2 },
+  { department_id: "D3", department_name: "Sales", employee_count: 1 }
+]);
+
+
+4. Answer the following Queries.
+a. Display name of employee who has highest salary [3]
+
+db.employees.find().sort({ salary: -1 }).limit(1).pretty();
+ 
+b. Display biggest department with max. no. of employees [3]
+
+db.departments.find().sort({ employee_count: -1 }).limit(1).pretty();
+ 
+c. Write a cursor which shows department wise employee 
+information [4]
+
+db.departments.aggregate([
+  {
+    $lookup: {
+      from: "employees",
+      localField: "department_id",
+      foreignField: "department_id",
+      as: "employees_in_department"
+    }
+  },
+  { $project: { department_name: 1, employees_in_department: 1 } }
+]);
+
+
+d. List all the employees who work in Sales dept and salary > 50000
+[4]
+
+
+db.employees.find({ department_id: "D3", salary: { $gt: 50000 } });
+
+||||||||||||||||||||||||||||||slip 4||||||||||||||||||||||||||||||||||||||
+
+. Model the following information system as a document database.
+Consider hospitals around Nashik. Each hospital may have one or more 
+specializations like Pediatric, Gynaec, Orthopedic, etc. A person can 
+recommend/provide review for a hospital. A doctor can give service to one 
+or more hospitals.
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+
+ db.hospital.insertOne({hid:'h2',hname:'B',speclization:['Pediatric', 'Orthopedic'],person:[{pnane:'p2',pno:02,rating:5}],doc:[{dname:'dr shindo'}],city:'Pune'});
+
+insert 10 like this
+
+3. Insert at least 10 documents in each collection. [3]
+4. Answer the following Queries
+a. List the names of hospitals with………… specialization. [3]
+
+db.hospital.find({ speclization:'Gynaec' }, { _id:0, hname:1 } );
+
+b. List the Names of all hospital located in ……. city [3]
+
+
+ db.hospital.find({ city:'Nashik' }, { _id:0, hname:1 } );
+
+c. List the names of hospitals where Dr. Deshmukh visits [4]
+
+db.hospital.find({ "doc.dname": "dr deshmukh" }, { _id: 0, hname: 1 });
+
+d. List the names of hospitals whose rating >=4
+
+ db.hospital.find({ "person.rating": { $gte: 4 } }, { _id: 0, hname: 1 });
+
+
+|||||||||||||||||||||||||||||||||||||slip 5||||||||||||||||||||||||||||||||||||||
+
+
+. Model the following database. Many employees working on one project. 
+A company has various ongoing projects.
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+3. Insert at least 5 documents in each collection. [3]
+
+ db.project.insertOne({pid:'p3',pname:'project3',projectTy:'IT',pdur:4})
+
+
+ db.emp.insertOne({eid:'e3',ename:'ee3',p_on:['p3','p2']})
+
+4. Answer the following Queries
+a. List all names of projects where Project_type =….. [3]
+db.project.find({ projectTy:"IT" })
+
+b. List all the projects with duration greater than 3 months [3]
+
+db.project.find({ pdur:{ $gte: 3 } })
+
+c. Count no. of employees working on ……..project [4]
+
+ db.emp.find({ p_on:'p1' }).count()
+
+d. List the names of projects on which Mr. Patil is working
+ 
+
+db.emp.findOne({ ename: "ee3" }, { _id: 0, p_on: 1 });
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||Slip 6||||||||||||||||||||||||||||||||||||||||||||||
+
+Model the following information as a document database.
+A customer can take different policies and get the benefit. There are 
+different types of policies provided by various companies
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+3. Insert at least 5 documents in each collection. [3]
+4. Answer the following Queries.
+a. List the details of customers who have taken “Komal Jeevan” Policy
+[3]
+b. Display average premium amount [3]
+c. Increase the premium amount by 5% for policy type=”Monthly”
+[4]
+d. Count no. of customers who have taken policy type “half yearly”. 
+
+
+
+// Customer Collection
+[
+ {
+ “customer_id”: 1,
+ “customer_name”: “John Doe”,
+ “policies_taken”: [
+ { “policy_id”: 101, “policy_type”: “Komal Jeevan”, “premium_amount”: 15000 },
+ { “policy_id”: 102, “policy_type”: “Health Insurance”, “premium_amount”: 8000 }
+ ]
+ },
+ {
+ “customer_id”: 2,
+ “customer_name”: “Jane Smith”,
+ “policies_taken”: [
+ { “policy_id”: 103, “policy_type”: “Term Life”, “premium_amount”: 12000 },
+ { “policy_id”: 104, “policy_type”: “Komal Jeevan”, “premium_amount”: 18000 }
+ ]
+ },
+ // ... (additional customers)
+]
+// Policy Collection
+[
+ {
+ “policy_id”: 101,
+ “policy_type”: “Komal Jeevan”,
+ “company”: “XYZ Insurance”,
+ “benefit”: “Financial support for family”,
+ “premium_frequency”: “Monthly”
+ },
+ {
+ “policy_id”: 102,
+ “policy_type”: “Health Insurance”,
+ “company”: “ABC Insurance”,
+ “benefit”: “Coverage for medical expenses”,
+ “premium_frequency”: “Yearly”
+ },
+ {
+ “policy_id”: 103,
+ “policy_type”: “Term Life”,
+ “company”: “XYZ Insurance”,
+ “benefit”: “Fixed payout in case of death”,
+ “premium_frequency”: “Half Yearly”
+ },
+ // ... (additional policies)
+]
+
+
+
+a. List the details of customers who have taken the “Komal Jeevan” policy:
+Db.customer.find({ “policies_taken.policy_type”: “Komal Jeevan” })
+
+
+
+b. Display the average premium amount:
+Var totalPremium = 0;
+Var totalCustomers = db.customer.count();
+Db.customer.find().forEach(function(customer) {
+ Customer.policies_taken.forEach(function(policy) {
+ totalPremium += policy.premium_amount;
+ });
+});
+Var averagePremium = totalPremium / totalCustomers;
+Print(“Average Premium Amount: “ + averagePremium);
+
+
+
+c. Increase the premium amount by 5% for policy type “Monthly”:
+Db.policy.update(
+ { “premium_frequency”: “Monthly” },
+ { $mul: { “premium_amount”: 1.05 } },
+ { multi: true }
+)
+
+
+
+
+d. Count the number of customers who have taken a policy type “Half Yearly”:
+Db.customer.find({ “policies_taken.policy_type”: “Half Yearly” }).count()
+
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||||Slip7||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+1. Model the following information as a document database.
+A customer operates his bank account, does various transactions and get 
+the banking services
+2. Assume appropriate attributes and collections as per the query
+requirements. [3]
+3. Insert at least 5 documents in each collection. [3]
+4. Answer the following Queries.
+a. List names of all customers whose first name starts with a “S” [3]
+b. List all customers who has open an account on 1/1/2020 in ___branch
+[3]
+c. List the names customers where acctype=”Saving” [4]
+d. Count total no. of loan account holder of …….branch [4
+
+
+
+
+// Customer Collection
+[
+ {
+ “customer_id”: 1,
+ “first_name”: “John”,
+ “last_name”: “Smith”,
+ “dob”: “1990-05-15”,
+ “accounts”: [
+ { “account_id”: 101, “account_type”: “Savings”, “branch”: “Main”, “open_date”: 
+“2020-01-01” },
+ { “account_id”: 102, “account_type”: “Checking”, “branch”: “Downtown”, 
+“open_date”: “2021-03-10” }
+ ]
+ },
+ {
+ “customer_id”: 2,
+ “first_name”: “Sara”,
+ “last_name”: “Jones”,
+ “dob”: “1985-08-22”,
+ “accounts”: [
+ { “account_id”: 103, “account_type”: “Savings”, “branch”: “Main”, “open_date”: 
+“2020-01-01” },
+ { “account_id”: 104, “account_type”: “Loan”, “branch”: “Downtown”, “open_date”: 
+“2022-05-20” }
+ ]
+ },
+ // ... (additional customers)
+]
+// Transaction Collection
+[
+ { “transaction_id”: 1, “account_id”: 101, “amount”: 500, “transaction_type”: “Deposit”, 
+“date”: “2022-01-15” },
+ { “transaction_id”: 2, “account_id”: 102, “amount”: -200, “transaction_type”: 
+“Withdrawal”, “date”: “2022-02-20” },
+ // ... (additional transactions)
+]
+a. List names of all customers whose first name starts with an “S”:
+Db.customer.find({ “first_name”: /^S/i }, { “_id”: 0, “first_name”: 1, “last_name”: 1 })
+b. List all customers who have opened an account on 1/1/2020 in the “Main” 
+branch:
+Db.customer.find({ “accounts.open_date”: “2020-01-01”, “accounts.branch”: “Main” }, { 
+“_id”: 0, “first_name”: 1, “last_name”: 1 })
+c. List the names of customers where acctype is “Savings”:
+Db.customer.find({ “accounts.account_type”: “Savings” }, { “_id”: 0, “first_name”: 1, 
+“last_name”: 1 })
+d. Count the total number of loan account holders in the “Downtown” branch:
+Db.customer.find({ “accounts.account_type”: “Loan”, “accounts.branch”: “Downtown” 
+}).count()
+
+
+||||||||||||||||||||||||||||||||||||||||slip8||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+
+1. Model the following inventory information as a document database.
+The inventory keeps track of various items. The items are tagged in various 
+categories. Items may be kept in various warehouses and each warehouse
+keeps track of the quantity of the item.
+2. Assume appropriate attributes and collections as per the query
+requirements [3]
+3. Insert at least 5 documents in each collection. [3]
+4. Answer the following Queries.
+a. List all the items qty is greater than 300 [3]
+b. List all items which have tags less than 5 [3]
+c. List all items having status equal to “B” or having quantity less than
+50 and height of the product should be greater than 8 [4]
+d. Find all warehouse that keeps item “Planner” and having in
+stock quantity less than 20
+
+// Item Collection
+[
+ { “item_id”: 101, “item_name”: “Laptop”, “tags”: [“Electronics”, “Gadgets”], “status”: 
+“A” },
+ { “item_id”: 102, “item_name”: “Chair”, “tags”: [“Furniture”], “status”: “B” },
+ { “item_id”: 103, “item_name”: “Planner”, “tags”: [“Stationery”], “status”: “C” },
+ { “item_id”: 104, “item_name”: “Camera”, “tags”: [“Electronics”, “Photography”], 
+“status”: “A” },
+ { “item_id”: 105, “item_name”: “Printer”, “tags”: [“Electronics”, “Office”], “status”: “B” }
+]
+// Warehouse Collection
+[
+ { “warehouse_id”: 1, “warehouse_name”: “Main Warehouse”, “items_stock”: [{ 
+“item_id”: 101, “quantity”: 400 }, { “item_id”: 103, “quantity”: 30 }] },
+ { “warehouse_id”: 2, “warehouse_name”: “Secondary Warehouse”, “items_stock”: [{ 
+“item_id”: 102, “quantity”: 100 }, { “item_id”: 105, “quantity”: 15 }] },
+ { “warehouse_id”: 3, “warehouse_name”: “Backup Warehouse”, “items_stock”: [{ 
+“item_id”: 104, “quantity”: 250 }, { “item_id”: 103, “quantity”: 10 }] }
+]
+a. List all the items where quantity is greater than 300:
+Db.warehouse.find({ “items_stock.quantity”: { $gt: 300 } })
+b. List all items which have tags less than 5:
+Db.item.find({ “tags”: { $exists: true, $size: { $lt: 5 } } })
+c. List all items having status equal to “B” or having quantity less than 50 and height 
+of the product should be greater than 8:
+Db.item.find({
+ $or: [
+ { “status”: “B” },
+ { $and: [{ “quantity”: { $lt: 50 } }, { “height”: { $gt: 8 } }] }
+ ]
+})
+d. Find all warehouses that keep the item “Planner” and have in-stock quantity less 
+than 20:
+Db.warehouse.find({ “items_stock”: { $elemMatch: { “item_id”: 103, “quantity”: { $lt: 20 } 
+} } })
+
+
+||||||||||||||||||||||||||||||||||||||||Slip 9 |||||||||||||||||||||||||||||||||||||||
+
+
+
+
+
+
+. Model the following Customer Loan information as a documentdatabase. 
+ Consider Customer Loan information system where the customer can take 
+ many types of loans.
+2. Assume appropriate attributes and collections as per the query
+requirements [3]
+ 3. Insert at least 10 documents in each collection. [3]
+ 4. Answer the following Queries.
+a. List all customers whose name starts with 'D' character [3] 
+b.List the names of customer in descending order who has taken a loan 
+from Pimpri city. [3] 
+c.Display customer details having maximum loan amount. [4] 
+d.Update the address of customer whose name is “Mr. Patil” and 
+loan_amt is greater than 100000. [4
+
+
+
+// Customer Collection
+[
+ { “customer_id”: 101, “customer_name”: “John Doe”, “address”: “Main St, Pune” },
+ { “customer_id”: 102, “customer_name”: “Alice Smith”, “address”: “Park St, Pimpri” },
+ { “customer_id”: 103, “customer_name”: “Mr. Patil”, “address”: “Hill St, Pimpri” },
+ // ... (additional customers)
+]
+// Loan Collection
+[
+ { “loan_id”: 201, “customer_id”: 101, “city”: “Pune”, “loan_type”: “Personal Loan”, 
+“loan_amt”: 50000 },
+ { “loan_id”: 202, “customer_id”: 102, “city”: “Pimpri”, “loan_type”: “Home Loan”, 
+“loan_amt”: 150000 },
+ { “loan_id”: 203, “customer_id”: 103, “city”: “Pimpri”, “loan_type”: “Car Loan”, 
+“loan_amt”: 120000 },
+ // ... (additional loans)
+]
+a. List all customers whose name starts with ‘D’ character:
+Db.customer.find({ “customer_name”: /^D/i })
+b. List the names of customers in descending order who have taken a loan from 
+Pimpri city:
+Db.customer.find({ “address”: /Pimpri/i }).sort({ “customer_name”: -1 })
+c. Display customer details having the maximum loan amount:
+Var maxLoanAmount = db.loan.find().sort({ “loan_amt”: -1 }).limit(1).next().loan_amt;
+Db.loan.aggregate([
+ { $match: { “loan_amt”: maxLoanAmount } },
+ { $lookup: { from: “customer”, localField: “customer_id”, foreignField: “customer_id”, 
+as: “customer_info” } },
+ { $unwind: “$customer_info” },
+ { $project: { “customer_info.customer_id”: 1, “customer_info.customer_name”: 1, 
+“customer_info.address”: 1, “loan_type”: 1, “loan_amt”: 1 } }
+])
+d. Update the address of the customer whose name is “Mr. Patil” and loan_amt is 
+greater than 100000:
+Db.customer.update(
+ { “customer_name”: “Mr. Patil”, “customer_id”: { $in: db.loan.find({ “loan_amt”: { $gt: 
+100000 } }).distinct(“customer_id”) } },
+ { $set: { “address”: “New Address” } },
+ { multi: true }
+)
+
+
+
+||||||||||||||||||||||||||||||||||||Slip10||||||||||||||||||||||||||||||||\\\
+
+
+
+Model the following Online shopping information as a document database. 
+Consider online shopping where the customer can get different products
+from different brands. Customers can rate the brands and products
+2. Assume appropriate attributes and collections as per the query
+requirements [3]
+3. Insert at least 5 documents in each collection. [3]
+4. Answer the following Queries.
+a. List the names of product whose warranty period is one year [3 ]
+b. List the customers has done purchase on “15/08/2023”. [3 ]
+c. Display the names of products with brand which have highest rating.
+[4]
+d. Display customers who stay in …… city and billamt >50000 .[4]
+
+
+// Product Collection
+[
+ { “product_id”: 101, “product_name”: “Laptop”, “brand”: “Dell”, “warranty_period”: “1 
+year”, “rating”: 4.5 },
+ { “product_id”: 102, “product_name”: “Smartphone”, “brand”: “Samsung”, 
+“warranty_period”: “2 years”, “rating”: 4.8 },
+ { “product_id”: 103, “product_name”: “Headphones”, “brand”: “Sony”, 
+“warranty_period”: “1 year”, “rating”: 4.2 },
+ // ... (additional products)
+]
+// Customer Collection
+[
+ { “customer_id”: 201, “customer_name”: “John Doe”, “city”: “New York” },
+ { “customer_id”: 202, “customer_name”: “Alice Smith”, “city”: “Los Angeles” },
+ { “customer_id”: 203, “customer_name”: “Bob Johnson”, “city”: “Chicago” },
+ // ... (additional customers)
+]
+// Purchase Collection
+[
+ { “purchase_id”: 301, “customer_id”: 201, “product_id”: 101, “purchase_date”: “2023-
+08-15”, “bill_amount”: 1200 },
+ { “purchase_id”: 302, “customer_id”: 202, “product_id”: 102, “purchase_date”: “2023-
+08-15”, “bill_amount”: 800 },
+ { “purchase_id”: 303, “customer_id”: 203, “product_id”: 103, “purchase_date”: “2023-
+08-15”, “bill_amount”: 150 },
+ // ... (additional purchases)
+]
+a. List the names of products whose warranty period is one year:
+Db.product.find({ “warranty_period”: “1 year” }, { “_id”: 0, “product_name”: 1 })
+b. List the customers who have made a purchase on “15/08/2023”:
+Db.purchase.aggregate([
+ { $match: { “purchase_date”: “2023-08-15” } },
+ { $lookup: { from: “customer”, localField: “customer_id”, foreignField: “customer_id”, 
+as: “customer_info” } },
+ { $unwind: “$customer_info” },
+ { $project: { “customer_info.customer_id”: 1, “customer_info.customer_name”: 1, 
+“customer_info.city”: 1 } }
+])
+c. Display the names of products with the brand that has the highest rating:
+Var maxRating = db.product.find().sort({ “rating”: -1 }).limit(1).next().rating;
+Db.product.find({ “rating”: maxRating }, { “_id”: 0, “product_name”: 1, “brand”: 1 })
+d. Display customers who stay in a specific city and have a bill amount greater than 
+50000:
+Db.purchase.aggregate([
+ { $match: { “bill_amount”: { $gt: 50000 } } },
+ { $lookup: { from: “customer”, localField: “customer_id”, foreignField: “customer_id”, 
+as: “customer_info” } },
+ { $unwind: “$customer_info” },
+ { $match: { “customer_info.city”: “New York” } },
+ { $project: { “customer_info.customer_id”: 1, “customer_info.customer_name”: 1, 
+“customer_info.city”: 1 } }
+])
+
+|||||||||||||||||||||||||||||||||||||||||Slip 12 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\
+
+
+1. Model the following online movie information as a document database. 
+Consider online movie information where the each actor has acted in one or 
+more movie. Each producer has produced many movies but each movie can be 
+produced by more than one producers. Each movie has one or more actors acting 
+in it, in different roles.
+2. Assume appropriate attributes and collections as per the query
+requirements[3]
+3. Insert at least 05 documents in each collection. [3]
+4. Answer the following Queries.
+a. List the names of movies with the highest budget. [3] 
+b. Display the details of producer who have produced more than 
+ one movie in a year. [3] 
+c. List the names of actors who have acted in at least one movie, in which 
+‘Akshay’ has acted. [4]
+d. List the names of movies, produced by more than one produce. [4]
+
+
+// Movie Collection
+[
+ { “movie_id”: 101, “movie_name”: “Inception”, “budget”: 200000000, “release_year”: 
+2010, “producers”: [ “Christopher Nolan”, “Emma Thomas” ], “actors”: [ { “actor_name”: 
+“Leonardo DiCaprio”, “role”: “Cobb” }, { “actor_name”: “Joseph Gordon-Levitt”, “role”: 
+“Arthur” } ] },
+ { “movie_id”: 102, “movie_name”: “The Dark Knight”, “budget”: 250000000, 
+“release_year”: 2008, “producers”: [ “Christopher Nolan”, “Emma Thomas” ], “actors”: [ 
+{ “actor_name”: “Christian Bale”, “role”: “Bruce Wayne” }, { “actor_name”: “Heath 
+Ledger”, “role”: “Joker” } ] },
+ // ... (additional movies)
+]
+// Producer Collection
+[
+ { “producer_name”: “Christopher Nolan”, “produced_movies”: [ { “movie_id”: 101, 
+“movie_name”: “Inception” }, { “movie_id”: 102, “movie_name”: “The Dark Knight” } ] },
+ { “producer_name”: “Emma Thomas”, “produced_movies”: [ { “movie_id”: 101, 
+“movie_name”: “Inception” }, { “movie_id”: 102, “movie_name”: “The Dark Knight” } ] },
+ // ... (additional producers)
+]
+// Actor Collection
+[
+ { “actor_name”: “Leonardo DiCaprio”, “acted_movies”: [ { “movie_id”: 101, 
+“movie_name”: “Inception” } ] },
+ { “actor_name”: “Joseph Gordon-Levitt”, “acted_movies”: [ { “movie_id”: 101, 
+“movie_name”: “Inception” } ] },
+ { “actor_name”: “Christian Bale”, “acted_movies”: [ { “movie_id”: 102, “movie_name”: 
+“The Dark Knight” } ] },
+ // ... (additional actors)
+]
+a. List the names of movies with the highest budget:
+Db.movie.find({}, { “_id”: 0, “movie_name”: 1, “budget”: 1 }).sort({ “budget”: -1 }).limit(1)
+b. Display the details of producers who have produced more than one movie in a 
+year:
+Db.producer.aggregate([
+ { $unwind: “$produced_movies” },
+ { $group: { “_id”: { “producer_name”: “$producer_name”, “release_year”: 
+“$produced_movies.release_year” }, “count”: { $sum: 1 } } },
+ { $match: { “count”: { $gt: 1 } } },
+ { $project: { “_id”: 0, “producer_name”: “$_id.producer_name”, “release_year”: 
+“$_id.release_year”, “count”: 1 } }
+])
+c. List the names of actors who have acted in at least one movie in which ‘Akshay’ 
+has acted:
+Var akshayMovies = db.actor.find({ “acted_movies.actor_name”: “Akshay” }, { “_id”: 0, 
+“acted_movies.movie_name”: 1 }).map(function(actor) {
+ Return actor.acted_movies.map(function(movie) {
+ Return movie.movie_name;
+ });
+}).flat();
+Db.actor.find({ “acted_movies.movie_name”: { $in: akshayMovies } }, { “_id”: 0, 
+“actor_name”: 1 })
+d. List the names of movies produced by more than one producer:
+Db.movie.find({ “producers”: { $size: { $gt: 1 } } }, { “_id”: 0, “movie_name”: 1 })
+
+||||||||||||||||||||||||||||||Slip 13||||||||||||||||||||||||||||||||||||||
+
+
+
+// Competition Collection
+[
+ { “competition_id”: 101, “competition_name”: “Coding Challenge”, “category”: 
+“Programming” },
+ { “competition_id”: 102, “competition_name”: “E-Rangoli”, “category”: “Arts” },
+ // ... (additional competitions)
+]
+// Student Collection
+[
+ { “student_id”: 201, “student_name”: “John Doe”, “class”: “FY” },
+ { “student_id”: 202, “student_name”: “Alice Smith”, “class”: “SY” },
+ { “student_id”: 203, “student_name”: “Bob Johnson”, “class”: “FY” },
+ // ... (additional students)
+]
+// Participation Collection
+[
+ { “participation_id”: 301, “student_id”: 201, “competition_id”: 101, “position”: 2 },
+ { “participation_id”: 302, “student_id”: 202, “competition_id”: 102, “position”: 1 },
+ // ... (additional participations)
+]
+a. Display the average number of students participating in each competition:
+Db.participation.aggregate([
+ { $group: { “_id”: “$competition_id”, “average_students”: { $avg: 1 } } },
+ { $lookup: { from: “competition”, localField: “_id”, foreignField: “competition_id”, as: 
+“competition_info” } },
+ { $unwind: “$competition_info” },
+ { $project: { “_id”: 0, “competition_name”: “$competition_info.competition_name”, 
+“average_students”: 1 } }
+])
+b. Find the number of students for the programming competition:
+Db.participation.count({ “competition_id”: 101 })
+c. Display the names of the first three winners of each competition:
+Db.participation.aggregate([
+ { $sort: { “position”: 1 } },
+ { $group: { “_id”: “$competition_id”, “winners”: { $push: { “student_id”: “$student_id”, 
+“position”: “$position” } } } },
+ { $lookup: { from: “student”, localField: “winners.student_id”, foreignField: 
+“student_id”, as: “winner_info” } },
+ { $unwind: “$winner_info” },
+ { $project: { “_id”: 0, “competition_id”: “$_id”, “competition_name”: 
+“$winner_info.competition_name”, “winners”: 1 } }
+])
+d. Display students from class ‘FY’ who participated in ‘E-Rangoli’ Competition:
+Db.participation.aggregate([
+ { $match: { “competition_id”: 102 } },
+ { $lookup: { from: “student”, localField: “student_id”, foreignField: “student_id”, as: 
+“student_info” } },
+ { $unwind: “$student_info” },
+ { $match: { “student_info.class”: “FY” } },
+ { $project: { “_id”: 0, “student_name”: “$student_info.student_name”, “class”: 
+“$student_info.class” } }
+])
+
+
+
+|||||||||||||||||||||||||||||||||||||||||Cyphr ||||||||||||||||||||||||||||||||||||||||||\
+
+Model the following system as a graph model, and answer the queries using 
+Cypher. 
+Government provides various scholarships for students. A students apply for 
+scholarship. Student can get benefits of more than one scholarship if satisfies 
+the criteria. Student can recommend it for his friends or other family members
+1. Identify the labels and relationships, along with their properties, and
+draw a high-level Graph model. [3]
+2. Create nodes and relationships, along with their properties, andvisualize
+your actual Graph model. [3]
+
+// Create students
+CREATE (s1:Student {name: "Alice", age: 20, gender: "Female", category: "OBC", income: 30000}),
+       (s2:Student {name: "Bob", age: 22, gender: "Male", category: "General", income: 50000}),
+       (s3:Student {name: "Charlie", age: 19, gender: "Male", category: "OBC", income: 25000});
+
+// Create scholarships
+CREATE (sch1:Scholarship {name: "OBC Special Grant", category: "OBC", benefits: "Tuition fee waiver", income_limit: 40000, year: "2020-2021"}),
+       (sch2:Scholarship {name: "General Excellence", category: "General", benefits: "Scholarship prize", income_limit: 60000, year: "2020-2021"});
+
+// Create relationships
+MATCH (s1:Student {name: "Alice"}), (sch1:Scholarship {name: "OBC Special Grant"})
+CREATE (s1)-[:APPLIED_FOR {status: "approved", year: "2020-2021"}]->(sch1);
+
+MATCH (s2:Student {name: "Bob"}), (sch2:Scholarship {name: "General Excellence"})
+CREATE (s2)-[:APPLIED_FOR {status: "approved", year: "2020-2021"}]->(sch2);
+
+MATCH (s1:Student {name: "Alice"}), (s3:Student {name: "Charlie"})
+CREATE (s1)-[:RECOMMENDED {relationship: "friend"}]->(s3);
+
+
+
+3. Answer the following Queries in Cypher:
+a. List the names of scholarship for OBC category.[3]
+
+MATCH (sch:Scholarship {category: "OBC"})
+RETURN sch.name AS ScholarshipName;
+
+b. Count no. of students who are benefitted by ____ scholarship in year 
+2020-2021 [3]
+
+MATCH (s:Student)-[r:APPLIED_FOR {status: "approved", year: "2020-2021"}]->(sch:Scholarship {name: "OBC Special Grant"})
+RETURN COUNT(s) AS BenefittedStudents;
+
+c. Update the income limit for _____scholarship. [4]
+
+MATCH (sch:Scholarship {name: "OBC Special Grant"})
+SET sch.income_limit = 45000
+RETURN sch.name AS ScholarshipName, sch.income_limit AS NewIncomeLimit;
+
+d. List the most popular scholarship. [4
+
+MATCH (s:Student)-[r:APPLIED_FOR]->(sch:Scholarship)
+RETURN sch.name AS ScholarshipName, COUNT(s) AS ApplicationCount
+ORDER BY ApplicationCount DESC
+LIMIT 1;
+

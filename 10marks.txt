@@ -1,0 +1,1815 @@
+|||||||||||||||||||||||||||||||||||Slip 1 ||||||||||||||||||||||||||||||||||
+
+Q1 Write the HTML5 code for generating the form as shown below. Apply the internal CSS to the following form to change the font size of the heading to 6pt and change the color to red and also change the background color to yellow.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Form</title>
+    <style>
+        body {
+            background-color: yellow;
+        }
+        h1 {
+            font-size: 6pt;
+            color: red;
+        }
+        .form-container {
+            background-color: #a8e6cf;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="radio"] {
+            width: auto;
+        }
+        .form-container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container .buttons input {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Project Management</h1>
+        <form>
+            <label for="project-name">Project Name</label>
+            <input type="text" id="project-name" name="project-name" placeholder="Project name">
+            
+            <label for="assigned-to">Assigned to</label>
+            <select id="assigned-to" name="assigned-to">
+                <option value="er-merry-petision">Er Merry Petision</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date" name="start-date">
+            
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date" name="end-date">
+            
+            <label>Priority</label>
+            <input type="radio" id="high" name="priority" value="high">
+            <label for="high">High</label>
+            <input type="radio" id="average" name="priority" value="average">
+            <label for="average">Average</label>
+            <input type="radio" id="low" name="priority" value="low">
+            <label for="low">Low</label>
+            
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" placeholder="Description"></textarea>
+            
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+|||||||||||||||||||||||||||||||||||||||||slip 2 ||||||||||||||||||||||||||||||||||||||
+
+Q1 Create a container add row inside it and add 3 columns inside row using BootStrap.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid Example</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Column 1
+            </div>
+            <div class="col">
+                Column 2
+            </div>
+            <div class="col">
+                Column 3
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+|||||||||||||||||||||||||||||||||||||||||Slip 3 |||||||||||||||||||||||||||||||||||||||
+
+
+
+Write a bootstrap application to display thumbnails of the images. 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Image Thumbnails</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image1.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Image 1</h5>
+                        <p class="card-text">Description of image 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image2.jpg" class="card-img-top" alt="Image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Image 2</h5>
+                        <p class="card-text">Description of image 2.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image3.jpg" class="card-img-top" alt="Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Image 3</h5>
+                        <p class="card-text">Description of image 3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+||||||||||||||||||||||||||||||||||||||||||||||||Slip 4 ||||||||||||||||||||||||||||||||||||
+
+Write a bootstrap program for the following 
+“The .table class adds basic styling (light padding and only horizontal 
+dividers) to a table” The table can have the first name, last name, and email 
+id as columns
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Table Example</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-4">User Information Table</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john.doe@example.com</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>Smith</td>
+                    <td>jane.smith@example.com</td>
+                </tr>
+                <tr>
+                    <td>Emily</td>
+                    <td>Johnson</td>
+                    <td>emily.johnson@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+||||||||||||||||||||||||||||||||||slip 5||||||||||||||||||||||||||||||||||||||||||
+Write a HTML code, which generate the following output
+ [ Apply border, border radius tags ]
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Persons</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden; /* This makes the border radius apply to the whole table */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>List of Persons</h2>
+
+<table>
+  <tr>
+    <th>Srno</th>
+    <th>Person Name</th>
+    <th>Age</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+|||||||||||||||||||||||||||||||||||||||||Slip 6 ||||||||||||||||||||||||||||||||
+
+
+Create a web page being rendered in the browser consists of many things -
+ logo, informative text, pictures, hyperlinks, navigational structure and table.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header img {
+            height: 50px;
+        }
+        nav {
+            background-color: #6c757d;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .gallery img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .gallery {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <h1>Welcome to Our Website</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section class="info">
+            <h2>About Us</h2>
+            <p>We are a company that provides amazing services to our clients. Our goal is to ensure customer satisfaction and high-quality service delivery.</p>
+        </section>
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+        </section>
+        <section class="table-section">
+            <h2>Employee Information</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john.doe@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>Smith</td>
+                        <td>jane.smith@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Emily</td>
+                        <td>Johnson</td>
+                        <td>emily.johnson@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+|||||||||||||||||||||||||||||||||||slip 7 |||||||||||||||||||||||||||||
+
+
+Create a 3D text, apply appropriate font, style, color. Use : Hover in the style selector so that the 3D effects appear only when you hover over the text
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Hover Text Effect</title>
+    <style>
+        .text-3d {
+            font-family: 'Arial', sans-serif;
+            font-size: 50px;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: transform 0.2s, color 0.2s;
+        }
+        .text-3d:hover {
+            color: #ff0000;
+            transform: rotateX(20deg) rotateY(20deg);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-3d">Hover Me!</h1>
+</body>
+</html>
+
+
+||||||||||||||||||||||||||||||||| Slip 8 ||||||||||||||||||||||||||||||||||||||||||
+
+
+Create a button with different style (Secondary, Primary, Success, Error, Info, Warning, Danger) using BootStrap
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Buttons</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Bootstrap Buttons</h1>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+||||||||||||||||||||||||||||||Slip 9 ||||||||||||||||||||||||||||||||||||||||||||
+
+Write an HTML 5 program for student registration form for college 
+admission. Use input type like search, email, date et
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="search">Search for Course:</label>
+        <input type="search" id="search" name="search">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" required>
+            <option value="">Select Course</option>
+            <option value="bsc">B.Sc</option>
+            <option value="ba">B.A</option>
+            <option value="bcom">B.Com</option>
+            <option value="btech">B.Tech</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+||||||||||||||||||||||||||||||||||Slip10|||||||||||||||||||||||||||||||||||||||||
+
+
+Create a web page that shows use of transition properties, transition delay and duration effect.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .transition-box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 0 auto;
+            transition: background-color 3s, transform 3s;
+        }
+        .transition-box:hover {
+            background-color: #e74c3c;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Transitions Example</h1>
+    <div class="transition-box"></div>
+
+</body>
+</html>
+
+
+
+|||||||||||||||||||||||||||||||||||||||Slip11|||||||||||||||||||||||||||||||||||\
+
+Write a HTML code which will divide web page in three frames. First frame 
+should consists of company name as heading. Second frame should consists 
+of name of departments with hyperlink. Once click on any department, it 
+should display information of that department in third frame.
+
+
+
+
+|||||||||||||||||||||||||||||Slip 12 |||||||||||||||||||||||||||||||
+
+
+Design an appropriate HTML form for customer registration visiting a 
+departmental store. Form should consist of fields such as name, contact no, 
+gender, preferred days of purchasing, favorite item (to be selected from a 
+list of items), suggestions etc. You should provide button to submit as well 
+as reset the form contents.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container .buttons .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-container .buttons .reset-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Customer Registration</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="contact">Contact No:</label>
+        <input type="tel" id="contact" name="contact" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="preferred-days">Preferred Days of Purchasing:</label>
+        <input type="text" id="preferred-days" name="preferred-days">
+
+        <label for="favorite-item">Favorite Item:</label>
+        <select id="favorite-item" name="favorite-item" required>
+            <option value="">Select Favorite Item</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="groceries">Groceries</option>
+            <option value="furniture">Furniture</option>
+            <!-- Add more items as needed -->
+        </select>
+
+        <label for="suggestions">Suggestions:</label>
+        <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+
+||||||||||||||||||||||||||||||Slip13||||||||||||||||||||||||||||||||||||||||||
+
+Create a useful web with the following information and structure using 
+HTML5 tags like:<header> , <footer>, <nav>, <aside>, <section>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header, footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+            margin: 20px;
+        }
+        aside {
+            width: 25%;
+            padding: 20px;
+            background-color: #e9ecef;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            width: 75%;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Useful Web Page</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <aside>
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#link1">Link 1</a></li>
+                <li><a href="#link2">Link 2</a></li>
+                <li><a href="#link3">Link 3</a></li>
+            </ul>
+        </aside>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to our website. Here you can find a variety of resources and information to help you with your needs.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>Our company is dedicated to providing the best service to our customers. Learn more about our history and mission.</p>
+        </section>
+        <section id="services">
+            <h2>Services</h2>
+            <p>We offer a range of services to meet your needs. From consulting to product development, we've got you covered.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you have any questions or would like to get in touch, please reach out to us through our contact form.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+||||||||||||||||||||||||||||||||||||Slip14||||||||||||||||||||||||||||||||||
+Design an HTML form to take the information of a customer for booking a 
+travel plan consisting of fields such as name, address, contact no., gender, 
+preferred season(Checkboxes), location type(to be selected from a list) etc. 
+You should provide button to submit as well as reset the form contents
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Plan Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="checkbox"] {
+            width: auto;
+        }
+        .form-container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container .buttons .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-container .buttons .reset-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Travel Plan Booking Form</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="contact">Contact No.:</label>
+        <input type="tel" id="contact" name="contact" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="preferred-season">Preferred Season:</label>
+        <input type="checkbox" id="summer" name="preferred-season" value="summer">
+        <label for="summer">Summer</label>
+        <input type="checkbox" id="winter" name="preferred-season" value="winter">
+        <label for="winter">Winter</label>
+        <input type="checkbox" id="spring" name="preferred-season" value="spring">
+        <label for="spring">Spring</label>
+        <input type="checkbox" id="autumn" name="preferred-season" value="autumn">
+        <label for="autumn">Autumn</label>
+
+        <label for="location-type">Location Type:</label>
+        <select id="location-type" name="location-type" required>
+            <option value="">Select Location Type</option>
+            <option value="beach">Beach</option>
+            <option value="mountains">Mountains</option>
+            <option value="city">City</option>
+            <option value="countryside">Countryside</option>
+        </select>
+
+        <label for="suggestions">Suggestions:</label>
+        <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+
+|||||||||||||||||||||||||||||||||||||||Slip15|||||||||||||||||||||||||||||||||\
+
+Create HTML web-page using Bootstrap as shown below
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>Registration Form</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department / Office</label>
+                                <select class="form-control" id="department">
+                                    <option>Select your Department/Office</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="E-Mail Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactNo">Contact No.</label>
+                                <input type="text" class="form-control" id="contactNo" placeholder="(639)">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+|||||||||||||||||||||||||||||||||||||Slip16|||||||||||||||||||||||||||||||||||||||\
+
+Create Contact Form on Bootstrap
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 bg-warning text-white p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-envelope fa-2x mr-3"></i>
+                    <h4>Contact Us</h4>
+                </div>
+                <p>We would love to hear from you!</p>
+            </div>
+            <div class="col-md-8 p-4">
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea class="form-control" id="comment" rows="4" placeholder="Enter your comment"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||Slip17||||||||||||||||||||||||||||||||||||||
+
+
+Design HTML 5 Page Using CSS which display the following Box ( use Box Model Property in 
+ CSS)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Design</title>
+    <style>
+        .outer-box {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            border: 5px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .middle-box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            border: 3px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner-box {
+            width: 150px;
+            height: 50px;
+            background-color: yellow;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer-box">
+        <div class="middle-box">
+            <div class="inner-box">M.Sc (Computer Sci)</div>
+            <div class="inner-box">Academic Year 2023-24</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+|||||||||||||||||||||||||||||||Slip18|||||||||||||||||||||||||||||||||||||\\
+
+Create a web page, place an image in center and apply 2d transformation on it. (rotation, scaling, translation)
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Transformations on Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .image-container {
+            overflow: hidden;
+        }
+        img {
+            transition: transform 0.5s ease;
+        }
+        img:hover {
+            transform: rotate(45deg) scale(1.5) translate(50px, 50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://via.placeholder.com/150" alt="Sample Image">
+    </div>
+</body>
+</html>
+
+||||||||||||||||||||||||||||||||||||Slip19|||||||||||||||||||||||||||||||||||||||||
+
+Create a web page in which show a button with a text “start download” , 
+when click in start download a progress bar must be initialized with value 0 
+then increase by 10 in each second, change the color of progress bar after 
+every three seconds.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Progress</title>
+    <style>
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar-inner {
+            height: 30px;
+            width: 0;
+            background-color: #3498db;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+            transition: width 1s;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <button onclick="startDownload()">Start Download</button>
+        <div class="progress-bar">
+            <div class="progress-bar-inner" id="progressBar">0%</div>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+        let colorIndex = 0;
+        const colors = ['#3498db', '#e74c3c', '#2ecc71'];
+
+        function startDownload() {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '0%';
+            progressBar.innerText = '0%';
+            progress = 0;
+            colorIndex = 0;
+
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressBar.innerText = progress + '%';
+
+                if (progress % 30 === 0) {
+                    colorIndex = (colorIndex + 1) % colors.length;
+                    progressBar.style.backgroundColor = colors[colorIndex];
+                }
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||Slip20||||||||||||||||||||||||||||||||||||||||||||
+
+
+Create a web page , show a button with a text “start download” , when click in 
+start download a progress bar must be initialized with value 0 then increase by 
+5 in each second then at the end of downloading process alert the message 
+“Download completed”
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Progress</title>
+    <style>
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar-inner {
+            height: 30px;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+            transition: width 1s;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <button onclick="startDownload()">Start Download</button>
+        <div class="progress-bar">
+            <div class="progress-bar-inner" id="progressBar">0%</div>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+
+        function startDownload() {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '0%';
+            progressBar.innerText = '0%';
+            progress = 0;
+
+            const interval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = progress + '%';
+                progressBar.innerText = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    alert('Download completed');
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
+
+
+||||||||||||||||||||||||||||||||Slip21|||||||||||||||||||||||||||||||||||
+
+
+Write a css3 script for the student registration form with appropriate message 
+ display also high light compulsory fields in a different color
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container .required {
+            color: red;
+        }
+        .form-container input:required {
+            border-color: red;
+        }
+        .form-container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container .buttons .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-container .buttons .reset-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .form-container .message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+        .form-container .message.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:<span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:<span class="required">*</span></label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="contact">Contact No.:<span class="required">*</span></label>
+        <input type="tel" id="contact" name="contact" required>
+
+        <label for="gender">Gender:<span class="required">*</span></label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="suggestions">Suggestions:</label>
+        <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </div>
+        <div class="message" id="successMessage">Registration successful!</div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.getElementById('successMessage').classList.add('active');
+    });
+</script>
+
+</body>
+</html>
+
+
+
+|||||||||||||||||||||||||||||||||||||||Slip22|||||||||||||||||||||||||||||||||||||||
+
+Create a web page to create 3D text. Apply all text effects like text shadow, 
+text overflow, wordwrap etc
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Text Effects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .text-container {
+            text-align: center;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .text-3d {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 3px 3px 5px #aaa, 6px 6px 10px #777, 9px 9px 15px #444;
+        }
+        .text-3d span {
+            background-color: #e9ecef;
+            padding: 10px;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <div class="text-3d">
+            <span>3D Text with Shadow, Overflow, and Word Wrap Effects</span>
+        </div>
+    </div>
+</body>
+</html>
+
+
+|||||||||||||||||||||||||||||||||||||||Slip23|||||||||||||||||||||||||||
+Create a web page to display image on screen
+Apply the following
+a. Display image in tiles
+b. Rotate image in clockwise and anticlockwise direction
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display and Rotation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .tile-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .rotate-button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="tile-container" id="tileContainer">
+        <div class="tile" style="background-position: 0 0;"></div>
+        <div class="tile" style="background-position: -100px 0;"></div>
+        <div class="tile" style="background-position: -200px 0;"></div>
+        <div class="tile" style="background-position: 0 -100px;"></div>
+        <div class="tile" style="background-position: -100px -100px;"></div>
+        <div class="tile" style="background-position: -200px -100px;"></div>
+        <div class="tile" style="background-position: 0 -200px;"></div>
+        <div class="tile" style="background-position: -100px -200px;"></div>
+        <div class="tile" style="background-position: -200px -200px;"></div>
+    </div>
+
+    <div class="controls">
+        <button class="rotate-button" onclick="rotateClockwise()">Rotate Clockwise</button>
+        <button class="rotate-button" onclick="rotateCounterClockwise()">Rotate Counterclockwise</button>
+    </div>
+</div>
+
+<script>
+    let rotation = 0;
+
+    function rotateClockwise() {
+        rotation += 90;
+        document.getElementById('tileContainer').style.transform = 'rotate(' + rotation + 'deg)';
+    }
+
+    function rotateCounterClockwise() {
+        rotation -= 90;
+        document.getElementById('tileContainer').style.transform = 'rotate(' + rotation + 'deg)';
+    }
+</script>
+
+</body>
+</html>
+
+
+
+||||||||||||||||||||||||||||||||||Slip24||||||||||||||||||||||||||||||||||||||
+
+
+Create an html page named as “calendar.html” 
+ Use necessary input types and get following output
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Input Types</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input[type="date"],
+        .form-container input[type="datetime-local"],
+        .form-container input[type="month"],
+        .form-container input[type="time"],
+        .form-container input[type="week"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Input Types Examples</h1>
+    <form>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+
+        <label for="datetime-local">Datetime-local:</label>
+        <input type="datetime-local" id="datetime-local" name="datetime-local">
+
+        <label for="month">Month:</label>
+        <input type="month" id="month" name="month">
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time">
+
+        <label for="week">Week:</label>
+        <input type="week" id="week" name="week">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
+
+
+|||||||||||||||||||||||||||||||||||||\\\\Slip25|||||||||||||||||||||||||||||||||||
+
+Write the HTML5 code for generating the form as shown below. Apply the 
+internal CSS to the following form to set the font size, font color, heading ,
+background color etc.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Form</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+        }
+        label {
+            font-size: 14px;
+            color: red;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="password"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="radio"] {
+            margin-top: 5px;
+        }
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00796b;
+            color: white;
+            cursor: pointer;
+        }
+        .buttons input[type="reset"] {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENTRY FORM</h1>
+    <form>
+        <label for="name">Enter your Name :</label>
+        <input type="text" id="name" name="name">
+
+        <label for="age">Enter your Age :</label>
+        <input type="number" id="age" name="age">
+
+        <label for="address">Enter your Address :</label>
+        <textarea id="address" name="address"></textarea>
+
+        <label>Sex :</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female" style="display:inline;">Female</label>
+        <input type="radio" id="male" name="sex" value="male">
+        <label for="male" style="display:inline;">Male</label>
+
+        <label for="nationality">Nationality :</label>
+        <select id="nationality" name="nationality">
+            <option value="">Please select a country</option>
+            <!-- Add options for countries here -->
+        </select>
+
+        <label>Languages Known :</label>
+        <input type="checkbox" id="c" name="languages" value="C">
+        <label for="c" style="display:inline;">C</label>
+        <input type="checkbox" id="cpp" name="languages" value="C++">
+        <label for="cpp" style="display:inline;">C++</label>
+        <input type="checkbox" id="csharp" name="languages" value="C#">
+        <label for="csharp" style="display:inline;">C#</label>
+        <input type="checkbox" id="java" name="languages" value="JAVA">
+        <label for="java" style="display:inline;">JAVA</label>
+        <input type="checkbox" id="asp" name="languages" value="ASP">
+        <label for="asp" style="display:inline;">ASP</label>
+        <input type="checkbox" id="others" name="languages" value="OTHERS">
+        <label for="others" style="display:inline;">OTHERS</label>
+
+        <label for="password">Enter your Password :</label>
+        <input type="password" id="password" name="password">
+
+        <div class="buttons">
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
+
